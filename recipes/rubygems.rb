@@ -40,6 +40,7 @@ template "#{rubygems_dir}/.env" do
   sensitive true
   variables(
     api_key: rubygems_secrets['api_key'],
+    api_keys: rubygems_secrets['api_keys'] || '',
     admin_user: rubygems_secrets['admin_user'],
     admin_password: rubygems_secrets['admin_password'],
     gem_dir: '/data/rubygems.cinc.sh'
