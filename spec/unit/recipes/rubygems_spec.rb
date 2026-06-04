@@ -8,6 +8,7 @@ describe 'proj-cinc::rubygems' do
           stub_data_bag_item('proj-cinc', 'rubygems').and_return(
             'id' => 'rubygems',
             'api_key' => 'test_api_key',
+            'api_keys' => '{"projectb-test-key":["projectb","projectb-plugin"]}',
             'admin_user' => 'test_admin',
             'admin_password' => 'test_password'
           )
@@ -45,6 +46,12 @@ describe 'proj-cinc::rubygems' do
           mode: '0400',
           sensitive: true
         )
+      end
+
+      it do
+        expect(chef_run).to render_file('/opt/rubygems.cinc.sh/.env')
+          .with_content('API_KEY=test_api_key')
+          .with_content('API_KEYS={"projectb-test-key":["projectb","projectb-plugin"]}')
       end
 
       it do
