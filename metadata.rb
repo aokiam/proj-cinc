@@ -6,7 +6,7 @@ description       'Installs/Configures proj-cinc'
 issues_url        'https://github.com/osuosl-cookbooks/proj-cinc/issues'
 source_url        'https://github.com/osuosl-cookbooks/proj-cinc'
 chef_version      '>= 18.0'
-version           '1.0.0'
+version           '1.0.1'
 
 depends           'osl-docker'
 depends           'osl-firewall'
